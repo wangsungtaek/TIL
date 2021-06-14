@@ -62,3 +62,44 @@ Residual Connection 및 Bottleneck 구조로 층이 깊어지면서도 성능을
 
 Batch Normalization(Feature 데이터의 정규화)로 성능 향상
 
+### Bottleneck(병목) 구조
+
+2014년 GoogLeNet에서 처음 제안한 구조
+
+계산량을 줄이기 위해 1*1 필터를 사용하여 인위적으로 Depth 조절
+
+
+### 심층신경망(Deep Neural Network)
+
+층이 깊어짐에 따라 신경망의 가중치 개수가 증가
+
+그 결과로 실제 층이 깊어짐에 따라 최종 Training error 증가
+
+학습 과정이 어려움
+
+### L2 Regularization
+
+학습하는 과정에서 하나의 가중치가 지나치게 커지는 것을 막는 것
+
+가중치들의 스퀘어 합 = L2
+
+
+<br >
+
+### Residual Connection
+
+입력된 정보를 Output 단계에 다시 한번 연결해줌으로써 입력의 정보가 계속 살아있게끔 만드는 것
+
+
+> ###Convolutional Neural Network
+> 
+> 개체에 대한 인지
+> 
+> 의미분할
+> 
+> Segmentation
+> 
+> 차선인식
+
+ResNet
+
