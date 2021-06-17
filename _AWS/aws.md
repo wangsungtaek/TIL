@@ -20,6 +20,14 @@ AWS 서버 접속
 > 
 > $ sudo service nginx status
 
+> ### 서버 시작
+> 
+> $ sudo service nginx start
+
+> ### 서버 종료
+> 
+> $ sudo service nginx stop
+
 > ### 인바운드 규칙 추가
 > 
 > 외부에서 내 서버에 무언가를 요청하는 것
