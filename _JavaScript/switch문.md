@@ -1,20 +1,27 @@
 ## switch문
 
-switch문은 하나이상의 case문으로 구성된다.
+복수의 if 조건문은 switch 문으로 바꿀 수 있음.
+
+switch문은 하나 이상의 case문으로 구성됨.
+
+대개 default문도 있지만, 필수는 아니다.
 
 ~~~javascript
+var a;
+
 switch(x) {
     case 'value1':
-        ...
-        [break]
-    case 'value2';
-        ...
-        [break]
-    default;
-        ...
-        [break]
+        a = 1;
+        break
+    case 'value2':
+        a = 2;
+        break
+    default :
+        a =  3;
+        break
 }
 ~~~
+
 
 변수 x의 값과 첫 번째 case문의 값 'value1'를 일치 비교한 후, 두 번째 case문의 값 'value2'와 비교
 
