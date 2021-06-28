@@ -87,5 +87,3 @@ let result = condition ? value1 : value2;
 ~~~javascript
 let accessAlloewd = (age > 18) ? true : false;
 ~~~
-
-
