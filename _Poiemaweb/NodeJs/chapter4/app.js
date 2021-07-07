@@ -16,7 +16,7 @@ const calc = require('./foo');
 const result1 = calc.add(1, 2);
 const result2 = calc.minus(1, 2);
 //
-const myModule = require('./module');
+const myModule = require('../module');
 const result = myModule.calc.add(1, 2);
 
 
