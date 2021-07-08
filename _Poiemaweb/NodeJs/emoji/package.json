@@ -1,5 +1,16 @@
 {
   "dependencies": {
-    "node-emoji": "^1.10.0"
-  }
+    "node-emoji": "^1.5.0"
+  },
+  "name": "emoji",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

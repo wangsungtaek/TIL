@@ -15,9 +15,6 @@ $ node -v
 $ npm -v
 ~~~
 
-[ 완료사진 ]
-![img.png](img.png)
-
 ## 3. Update
 
 ### 3.1 Node.js
@@ -59,4 +56,34 @@ $ node -v
 
 npm은 Node.js에 포함되어 있어 Node.js 설치 시 자동 설치된다.
 
+따라서 별도의 설치가 필요 없다. 하지만 Node.js보다 자주 업데이트 되므로 최신 버전이 아닐 수 있다.
 
+~~~ bash
+$ npm install -g npm@latest
+
+$ npm -v
+~~~
+
+## 4. REPL
+
+REPL(Read Eval Print Loop : 입력 수행 출력 반복)은 Node.js는 물론
+
+대부분의 언어(Java, Python 등)가 제공하는 가상환경으로 간단한 코드를
+
+직접 실행해 결과를 확인해 볼 수 있다.
+
+![image](https://user-images.githubusercontent.com/68735491/124935032-3c5a1f00-e040-11eb-871c-739ec5c1e069.png)
+
+## Node.js 맛보기 : HTTP Server
+
+Node.js는 http 서버 모듈을 내장하고 있어서 아파치와 같은 별도의 웹서버
+
+를 설치할 필요가 없다.
+
+- 코드
+
+![image](https://user-images.githubusercontent.com/68735491/124936339-67913e00-e041-11eb-940a-8d32e34cb6a6.png)
+
+- 실행화면
+
+![image](https://user-images.githubusercontent.com/68735491/124936516-99a2a000-e041-11eb-9674-3912479e1df1.png)
