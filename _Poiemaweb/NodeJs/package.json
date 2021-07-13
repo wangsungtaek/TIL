@@ -8,7 +8,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "formidable": "^1.0.17"
+    "formidable": "^1.0.17",
+    "nopt": "^5.0.0"
   },
   "devDependencies": {},
   "keywords": [],
