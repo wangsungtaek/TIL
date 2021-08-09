@@ -2,13 +2,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 
 public class Main {
     public static void main(String[] args) throws NumberFormatException, IOException {
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
         int N = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
@@ -18,12 +18,14 @@ public class Main {
         }
 
         Arrays.sort(arr);
+        float size = arr.length;
+        int avg = Math.round(IntStream.of(arr).sum() / size);
+        int min = arr[0];
+        int max = arr[(int)size-1];
 
-        for(int i=0; i<N; i++){
-            sb.append(arr[i]).append("\n");
-        }
+        System.out.println(avg);
+        System.out.println(arr[(int)size / 2]);
 
-        System.out.println(sb);
-
+        System.out.println(max - min);
     }
 }
