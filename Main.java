@@ -7,40 +7,33 @@ public class Main {
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        /*
-         * testCase : 테스트 횟수
-         * k : 아파트 층수
-         * h : 아파트 호수
-         * sum : 사람 수
-         */
+        int N = Integer.parseInt(br.readLine());
 
-        int testCase = Integer.parseInt(br.readLine());
-        int k = 0;
-        int h = 0;
-        int sum = 0;
-        
-        for(int l = 0; l < testCase; l++ ) {
-            k = Integer.parseInt(br.readLine());
-            h = Integer.parseInt(br.readLine());
+        final int KG_5 = 5;
+        final int KG_3 = 3;
 
-            int[][] arr = new int[k][h];
+        int result = 0;
 
-            for(int i = 0; i < arr.length; i++ ) {
-                
-                sum = 0;
-                for(int j = 0; j < arr[i].length; j++ ) {
-                    
-                    if(i==0) {
-                        sum += (j + 1);
-                        arr[i][j] = sum;
-                    }
-                    else {
-                        sum += arr[i-1][j];
-                        arr[i][j] = sum;
-                    }
-                }
+        while(true) {
+
+            if( (N % KG_5) == 0 ) {
+                result += N / KG_5;
+                break;
             }
-            System.out.println(sum);
-        }   
+
+            else {
+                N -= KG_3;
+                result++;
+            }
+
+            if( N < 0 ) {
+                result = -1;
+                break;
+            }
+
+        }
+
+        System.out.println(result);
+        
     }
 }
