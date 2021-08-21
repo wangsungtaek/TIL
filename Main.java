@@ -4,98 +4,14 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        
+    public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        StringBuffer sb = new StringBuffer();
-
-        String firstNum = st.nextToken();
-        String secondNum = st.nextToken();
-
-        /*
-         * firstNumSize : 첫번째 입력 문자열 사이즈
-         * secondNumSize : 두번째 입력 문자열 사이즈
-         * 
-         * repeatNum : while loop 총 반복 횟수
-         * 
-         * sum : 합산된 값
-         * round : 올림 값
-         * i : 첫번째 입력 문자열에 대한 인덱스 값
-         * j : 두번째 입력 문자열에 대한 인덱스 값
-         * cnt : 반복 횟수 카운트 
-         */
-
-        int firstNumSize = firstNum.length();
-        int secondNumSize = secondNum.length();
         
-        int repeatNum = firstNumSize > secondNumSize ? firstNumSize : secondNumSize;
-
-        int sum = 0;
-        int round = 0;
-        int i = firstNumSize - 1;
-        int j = secondNumSize - 1;
-        int cnt = 1;
-
-
-        while(true) {
-            
-            // 라운드 값이 있을 경우,
-            if( round > 0) {
-                
-                // 자릿수 확인 : 첫번째 문자, 두번째 문자 자릿수 있을 경우에만 연산
-                if( cnt <= firstNumSize && cnt <= secondNumSize ) {
-                    sum = ( firstNum.charAt(i) - 48 ) + ( secondNum.charAt(j) - 48 ) + round;
-                }
-                else if( cnt <= firstNumSize ) {
-                    sum = ( firstNum.charAt(i) - 48 ) + round;
-                }
-                else {
-                    sum = ( secondNum.charAt(j) - 48 ) + round;
-                }
-
-                round = 0;
-            }
-
-            // 라운드 값이 없을 경우,
-            else {
-
-                // 자릿수 확인 : 첫번째 문자, 두번째 문자 자릿수 있을 경우에만 연산
-                if( cnt <= firstNumSize && cnt <= secondNumSize ) {
-                    sum = ( firstNum.charAt(i) - 48 ) + ( secondNum.charAt(j) - 48 );
-                }
-                else if( cnt <= firstNumSize ) {
-                    sum = ( firstNum.charAt(i) - 48 );
-                }
-                else {
-                    sum = ( secondNum.charAt(j) - 48 );
-                    
-                }
-            }
-
-            // 더한 결과에 올림값이 있는지 확인
-            if( sum >= 10 ) {
-                round = sum / 10;
-                sum = sum % 10;
-            }
-
-            i--;
-            j--;
-            cnt++;
-
-            // 문자열 버퍼에 연산된 값 추가
-            sb.append(sum);
-
-            // 루프 종료 조건 : 총 반복 횟수가 현재 반복하고 있는 횟수보다 작으면 종료
-            if( repeatNum < cnt ) {
-                // 종료 전 올림 값이 있으면 버퍼에 추가
-                if( round > 0 ) sb.append(round);
-
-                break;
-            }
-        }
-
-        sb.reverse();
-        System.out.println(sb.toString());
+        String word = br.readLine();
+        
+        for(int i = 0; i < word.length(); i++) {
+            System.out.printf("\'%s\'\n", word.charAt(i));
+        }    
+        
     }
 }
