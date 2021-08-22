@@ -6,12 +6,11 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        long n = Long.parseLong(st.nextToken());
         
-        String word = br.readLine();
-        
-        for(int i = 0; i < word.length(); i++) {
-            System.out.printf("\'%s\'\n", word.charAt(i));
-        }    
+        System.out.printf("%d", n);
         
     }
 }
