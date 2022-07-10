@@ -118,4 +118,99 @@ console.log(obj.x);
 
     - non-constructor ( 화살표 함수와 ES6 메서드 축약 표현 )
 
+<br>
 
+### 프로토타입의 constructor 프로퍼티와 생성자 함수
+
+- 이 constructor 프로퍼티는 prototype 프로퍼티로 자신을 참조하고 있는 생성자 함수를 가리킨다.
+
+<br>
+
+## 리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입
+<hr>
+
+- 리터럴 표기법에 의해 생성된 객체의 경우 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 없다.
+
+- 객체 리터럴에 의해 생성된 객체는 Object 생성자 함수가 생성한 객체가 아니다.
+
+<br>
+
+## 프로토타입의 생성 시점
+<hr>
+
+- 프로토타입은 생성자 함수가 생성되는 시점에 더불어 생성된다.
+
+<br>
+
+### 사용자 정의 생성자 함수와 프로토타입 생성 시점
+
+- 생성자 함수로서 호출할 수 있는 함수, 즉 constructor는 함수 정의가 평가되어 함수 객체를 생성하는 시점에 프로토타입도 더불어 생성된다.
+
+    ~~~ javascript
+    console.log(Person.prototype);
+
+    function Person(name) {
+        this.name = name;
+    }
+    ~~~
+
+- 사용자 정의 생성자 함수는 자신이 평가되어 함수 객체로 생성되는 시점에 프로토타입도 더불어 생성되며, 생성된 프로토타입의 프로토 타입은 언제나 Object.prototype이다.
+
+<br>
+
+### 빌트인 생성자 함수와 프로토타입 생성 시점
+
+- Object, String, Number 등과 같은 빌트인 생성자 함수도 일반 함수와 마찬가지로 빌트인 생성자 함수가 생성되는 시점에 프로토타입이 생성된다.
+
+<br>
+
+## 객체 생성 방식과 프로토타입의 결정
+<hr>
+
+- 객체는 다양한 생성 방법이 있다.
+
+- 추상 연산 OrdinaryObjectCreate에 의해 생성된다.
+
+### 객체 리터럴에 의해 생성된 객체의 프로토타입
+
+- 객체 리터럴에 의해 생성되는 객체의 프로토타입은 Object.prototype이다.
+
+<br>
+
+### Object 생성자 함수에 의해 생성된 객체의 프로토타입
+
+- Object 생성자 함수에 의해 생성된 객체는 Object.prototype을 프로토타입으로 갖게 되며, 이로써 Object.prototype을 상속 받는다.
+
+<br>
+
+### 생성자 함수에 의해 생성된 객체의 프로토타입
+
+- 생성자 함수에 의해 생성되는 객체의 프로토타입은 생성자 함수의 prototype 프로퍼티에 바인딩되어 있는 객체다.
+
+<br>
+
+## 프로토타입 체인
+<hr>
+
+~~~ javascript
+function Person(name) {
+    this.name = name;
+}
+
+// 프로토타입 메서드
+Person.prototype.sayHello = function() {
+    console.log(`Hi! My name is ${this.name}`);
+}
+
+const me = new Person('Lee');
+
+console.log(me.hasOwnProperty('name')); // true
+~~~
+
+- me 객체의 프로토타입은 Person.prototype이다.
+
+- Person.prototype의 프로토타입은 Object.prototype이다.
+
+- 프로토타입의 프로토타입은 언제나 Object.prototype이다.
+
+- 자바스크립트는 객체의 프로퍼티(메서드 포함)에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티가 없다면 [[Prototype]] 내부 슬롯의 참조를 따라 자신의 부모 역할을 하는 프로토타입의 프로퍼티를 순차적으로 검색한다. 이를 프로토타입 체인이라 한다.
