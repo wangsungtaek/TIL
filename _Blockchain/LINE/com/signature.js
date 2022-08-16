@@ -38,15 +38,16 @@ export default class SignatureGenerator {
               value.forEach(elem => {
                   allSubKeys = _.union(allSubKeys, Object.keys(elem))
               })
-
+              console.log('#### value: ', value);
               value.forEach(elem => {
-                  allSubKeys.forEach(subKey => {
-                      const flatKey = `${key}.${subKey}`
-                      const flatRawValue = elem[subKey] ? elem[subKey] : EMPTY
-                      const prevFlatValue = flatPair[flatKey]
-                      flatPair[flatKey] =
-                          _.isUndefined(prevFlatValue) ? flatRawValue : `${prevFlatValue},${flatRawValue}`
-                  })
+                allSubKeys.forEach(subKey => {
+                  console.log('## subKey :', subKey);
+                  const flatKey = `${key}.${subKey}`
+                  const flatRawValue = elem[subKey] ? elem[subKey] : EMPTY
+                  const prevFlatValue = flatPair[flatKey]
+                  flatPair[flatKey] =
+                      _.isUndefined(prevFlatValue) ? flatRawValue : `${prevFlatValue},${flatRawValue}`
+                })
               })
           } else {
               flatPair[key] = objBody[key]
